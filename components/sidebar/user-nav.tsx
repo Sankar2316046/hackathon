@@ -16,62 +16,24 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { LogoutButton } from "../ui/logout-button";
-import supabase from "@/lib/supabase";
+import { LogoutButton } from "@/components/ui/logout-button";
  
 
 export function UserNav() {
   const authService = new AuthService();
   const email = authService.getCurrentUserEmail();
-  const [profilePicture, setProfilePicture] = useState<string | null>(null);
 
-  useEffect(() => {
-    async function fetchUserProfile() {
-      if (!email) return;
-      
-      try {
-        const userId = await authService.getCurrentUserId();
-        if (!userId) return;
 
-        // Fetch user profile from the users table
-        const { data, error } = await supabase
-          .from('users')
-          .select('profile_picture')
-          .eq('user_id', userId)
-          .single();
-
-        if (error) {
-          console.error("Error fetching user profile:", error);
-          return;
-        }
-
-        if (data && data.profile_picture) {
-          const profilePicUrl = data.profile_picture.startsWith('http') 
-            ? data.profile_picture 
-            : `https://pmydjvruwtpmgqqdlybo.supabase.co/storage/v1/object/public/profile-pictures/${data.profile_picture}`;
-          setProfilePicture(profilePicUrl);
-        }
-      } catch (error) {
-        console.error("Failed to fetch user profile:", error);
-      }
-    }
-
-    fetchUserProfile();
-  }, [email]);
-
-  if (!email) {
-    return null;
-  }
-
-  // Get initials for fallback
-  const initials = email?.[0]?.toUpperCase() ?? "A";
+  
+  
+  const initials = email?.[0]?.toUpperCase() ?? "U";
 
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" className="relative h-8 w-8 rounded-full">
           <Avatar className="h-8 w-8 border border-primary/10">
-            <AvatarImage src={profilePicture || ""} alt={email} className="object-cover" />
+
             <AvatarFallback className="bg-primary/10 text-primary">
               {initials}
             </AvatarFallback>
@@ -88,12 +50,6 @@ export function UserNav() {
             <p className="text-sm font-medium text-gray-900">{email}</p>
           </div>
         </DropdownMenuLabel>
-        <DropdownMenuSeparator className="bg-gray-200/50" />
-        <DropdownMenuItem asChild className="focus:bg-gray-100/80">
-          <a href="/profile/edit" className="cursor-pointer flex w-full items-center">
-            <span>Edit Profile</span>
-          </a>
-        </DropdownMenuItem>
         <DropdownMenuSeparator className="bg-gray-200/50" />
         <DropdownMenuItem className="text-red-600 cursor-pointer p-0 focus:bg-gray-100/80">
           <LogoutButton showIcon className="justify-start" />

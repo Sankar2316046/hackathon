@@ -53,8 +53,8 @@ export const Product = () => {
         <div className="container mx-auto px-4 py-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {products.map((product) => (
-                  <Link href={`/product/${product?.id}`} key={product?.id}>
                     <Card key={product?.id} className="w-full">
+                        <Link href={`/product/${product?.id}`} key={product?.id}>
                         <div className="relative w-full h-[200px]">
                             <img 
                                 src={product?.product_url} 
@@ -62,6 +62,7 @@ export const Product = () => {
                                 className="object-cover w-full h-full rounded-t-lg"
                             />
                         </div>
+                        </Link>
                         <CardContent className="p-4">
                             <CardHeader className="mb-4">
                                 <CardTitle className="text-lg font-semibold line-clamp-2">
@@ -98,7 +99,7 @@ export const Product = () => {
                             </Button>
                         </CardContent>
                     </Card>
-                    </Link>
+                   
                 ))}
             </div>
         </div>

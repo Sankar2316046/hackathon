@@ -1,7 +1,9 @@
-export default function ProductPage() {
+import TodayDeal from "../(home)/sections/TodayDeal";
+
+export default function page() {
     return (
         <div>
-            <h1>Product Page</h1>
+            <TodayDeal/>
         </div>
     )
 }

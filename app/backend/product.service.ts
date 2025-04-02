@@ -1,8 +1,9 @@
 import supabase from '@/lib/supabase';
+import { AuthService } from './auth.service';
 
 export interface product{
 
-    id: number;
+    id?: number;
     product_name: string;
     description: string;
     price: number;
@@ -13,6 +14,13 @@ export interface product{
     discount: number;
 }
 
+export interface cartitem{
+    id?: number;
+    cart_id: number;
+    product_id: number;
+    quantity: number;
+    price: number;
+}
 export class ProductService {
     async addProduct(product: product): Promise<product> {
         const { data, error } = await supabase
@@ -71,5 +79,27 @@ export class ProductService {
         if (error) throw error;
 
         return data;
+    }
+    async addtocart(product: product) {
+        const auth = new AuthService();
+        const userid = await auth.getCurrentUserId();
+        const cartid = await supabase
+            .from('carts')   
+            .select('id')
+            .eq('user_id', userid)
+            .single();
+            if (cartid) {
+            const { data, error } = await supabase
+                .from('cartitems')
+                .insert({
+                    cart_id: cartid,
+                    product_id: product.id,
+                    quantity: 1,
+                    price: product.price,
+                });
+                if (error) throw error;
+                return data;
+            }
+            return null;
     }
 }

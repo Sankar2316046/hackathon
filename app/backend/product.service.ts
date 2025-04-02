@@ -2,7 +2,7 @@ import supabase from '@/lib/supabase';
 
 export interface product{
 
-    id: number;
+    id: string;
     product_name: string;
     description: string;
     price: number;
@@ -43,7 +43,7 @@ export class ProductService {
 
         return data;
     }   
-    async deleteProduct(id: number): Promise<void> {
+    async deleteProduct(id: string): Promise<void> {
         const { error } = await supabase
             .from('products')
             .delete()
@@ -51,7 +51,7 @@ export class ProductService {
 
         if (error) throw error;
     }
-    async getProductById(id: number): Promise<product> {
+    async getProductById(id: string): Promise<product> {
         const { data, error } = await supabase
             .from('products')
             .select('*')

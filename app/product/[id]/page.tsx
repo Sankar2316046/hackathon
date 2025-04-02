@@ -1,9 +1,10 @@
 import { ProductCard } from '@/app/components/product-card'
 import React from 'react'
 
-const page = () => {
+const page = ({params}: {params: {id: string}}) => {
+
   return (
-    <><ProductCard /></>
+    <><ProductCard id={params.id} /></>
   )
 }
 

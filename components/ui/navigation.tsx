@@ -25,7 +25,11 @@ export const adminNavigation: SidebarGroup[] = [
         title: "About Us",
         url: "/about",
 
-      }
+      },
+      {
+        title: "Add_to_cart",
+        url: "/add_to_cart",
+      },
     ],
   },
 ];

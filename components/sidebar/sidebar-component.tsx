@@ -78,8 +78,8 @@ export function SidebarComponent({
             return (
               <SidebarGroup key={item.title}>
                 <SidebarGroupLabel>{item.title}</SidebarGroupLabel>
-                <SidebarGroupContent>
-                  <SidebarMenu>
+                <SidebarGroupContent className="pl-4">
+                  <SidebarMenu className="">
                     {item.items.map((subItem) => (
                       <SidebarMenuItem key={subItem.title}>
                         <SidebarMenuButton asChild isActive={subItem.isActive}>

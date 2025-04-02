@@ -21,6 +21,11 @@ export const adminNavigation: SidebarGroup[] = [
         title:"Catogories",
         url:"/categories"
       },
+      {
+        title: "About Us",
+        url: "/about",
+
+      }
     ],
   },
 ];

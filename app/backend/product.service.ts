@@ -104,4 +104,70 @@ export class ProductService {
             }
             return null;
     }
+    async getCartItems() {
+        const auth = new AuthService();
+        const userid = await auth.getCurrentUserId();
+        const cartid = await supabase
+            .from('cart')
+            .select('id')
+            .eq('user_id', userid)
+            .single();
+
+        if (!cartid.data?.id) {
+            throw new Error('Cart not found');
+        }
+
+        // Get cart items with their quantities
+        const { data: cartItems, error: cartItemsError } = await supabase
+            .from('cartitems')
+            .select('product_id, quantity')
+            .eq('cart_id', cartid.data.id);
+
+        if (cartItemsError) throw cartItemsError;
+
+        // Get products and map them with their quantities
+        const { data: products, error: productsError } = await supabase
+            .from('products')
+            .select('*')
+            .in('id', cartItems?.map((item) => item.product_id) || []);
+
+        if (productsError) throw productsError;
+
+        // Map products with their quantities
+        const productsWithQuantity = products?.map(product => {
+            const cartItem = cartItems?.find(item => item.product_id === product.id);
+            return {
+                ...product,
+                proquan: cartItem?.quantity || 0
+            };
+        }) || [];
+
+        return productsWithQuantity;
+    }
+
+    async getquantity(id: string) {
+        const { data, error } = await supabase
+            .from('cartitems')
+            .select('quantity,price')
+            .eq('product_id', id)
+            .single();
+        if (error) throw error;
+        return data;
+    }
+    async updateCartItem(id: string, quantity: number) {
+        const { data, error } = await supabase
+            .from('cartitems')
+            .update({ quantity })
+            .eq('product_id', id)
+            .single();
+        if (error) throw error;
+        return data;
+    }
+    async removeCartItem(id: string) {
+        const { error } = await supabase
+            .from('cartitems')
+            .delete()
+            .eq('product_id', id);
+        if (error) throw error;
+    }
 }

@@ -39,7 +39,6 @@ export function UserNav() {
               {initials}
             </AvatarFallback>
           </Avatar>
-          <div className="w-4 h-4 rounded-full flex items-center justify-center"><ShoppingCart className="size-4" /></div>
         </Button>
        
       </DropdownMenuTrigger>

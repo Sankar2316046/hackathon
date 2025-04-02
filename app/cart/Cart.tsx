@@ -10,23 +10,23 @@ import { useRouter } from 'next/navigation';
 const initialItems: CartItem[] = [
   {
     id: '1',
-    name: 'Minimalist Leather Backpack',
-    price: 129.99,
-    image: 'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&q=80&w=400',
+    name: 'Yellow T-Shirt',
+    price: 19.99,
+    image: '/images/shirt1.jpg',
     quantity: 1
   },
   {
     id: '2',
-    name: 'Wireless Noise-Canceling Headphones',
-    price: 249.99,
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400',
+    name: 'Levi Jeans',
+    price: 24.99,
+    image: '/images/dress1.jpg',
     quantity: 1
   },
   {
     id: '3',
     name: 'Smart Fitness Watch',
-    price: 199.99,
-    image: 'https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&q=80&w=400',
+    price: 99.99,
+    image: '/images/watch1.jpg',
     quantity: 1
   }
 ];

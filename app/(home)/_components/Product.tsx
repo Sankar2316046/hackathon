@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { ProductService } from '@/app/backend/product.service';
 
@@ -7,7 +8,7 @@ export const Product = async () => {
     const products = await productService.getAllProducts();
   return (
     <div className='flex gap-4 overflow-hidden'>
-        <div className='flex gap-4 w-[80vw] border-2 border-black overflow-hidden'>
+        <div className='flex gap-4 w-[80vw]  border-black overflow-hidden'>
             <div className='w-full h-full rounded-xl flex items-center justify-center gap-4'>
                 {products.map((product) => (
                     <div key={product?.id} className='w-[20rem] h-fit rounded-xl flex flex-col gap-2 p-4 shadow-2xl'>

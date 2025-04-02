@@ -3,11 +3,12 @@ import type { SidebarGroup,BreadcrumbItems } from './types'
 export const adminNavigation: SidebarGroup[] = [
   {
     title: "Home",
-    url: "/dashboard",
+    url: "/scion",
+   
     items: [
       {
         title: "Home",
-        url: "/dashboard",
+        url: "/",
       },
       {
         title: "My Orders",
@@ -35,20 +36,20 @@ export const adminBreadcrumb:BreadcrumbItems['items'] = {
     title:'Home',
     url:'/'
   }],
-  '/profile':[{
-    title:'Profile',
-    url:'/profile'
+  '/orders':[{
+    title:'My Orders',
+    url:'/orders'
   }],
-  '/products':[{
-    title:'Products',
-    url:'/products'
+  '/favorites':[{
+    title:'Favorites',
+    url:'/favorites'
   }],
-  '/products/create':[{
-    title:'Products',
-    url:'/products'
+  '/categories':[{
+    title:'Catogories',
+    url:'/categories'
   },{
-    title:'Add Products',
-    url:'/products/create'
+    title:'About Us',
+    url:'/about'
   }],
   
 }

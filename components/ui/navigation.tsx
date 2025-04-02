@@ -9,6 +9,7 @@ export const adminNavigation: SidebarGroup[] = [
       {
         title: "Home",
         url: "/",
+        url: "/",
       },
       {
         title: "My Orders",

@@ -17,7 +17,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { LogoutButton } from "@/components/ui/logout-button";
- 
+
+import { ShoppingCart } from "lucide-react";
 
 export function UserNav() {
   const authService = new AuthService();
@@ -38,7 +39,9 @@ export function UserNav() {
               {initials}
             </AvatarFallback>
           </Avatar>
+          <div className="w-4 h-4 rounded-full flex items-center justify-center"><ShoppingCart className="size-4" /></div>
         </Button>
+       
       </DropdownMenuTrigger>
       <DropdownMenuContent 
         className="w-56 bg-white/80 backdrop-blur-lg backdrop-saturate-150 border border-gray-200/20 shadow-xl"

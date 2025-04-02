@@ -37,7 +37,7 @@ export const ProductCard = ({ id }: { id: string }) => {
         try {
             await productService.addtocart(product)
             toast.success('Product added to cart')
-            router.push('/cart')
+       
         } catch (err) {
             toast.error('Failed to add product to cart')
             console.error('Error adding to cart:', err)

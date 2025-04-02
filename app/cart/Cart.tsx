@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { ShoppingCart } from 'lucide-react';
 import { CartItemRow } from './_components/CartItems';
 import { CartItem } from './_components/types';
+import { useRouter } from 'next/navigation';
 
 
 const initialItems: CartItem[] = [
@@ -52,6 +53,7 @@ export function Cart() {
   const shipping = subtotal > 100 ? 0 : 10;
   const total = subtotal + tax + shipping;
 
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-4xl mx-auto px-4">
@@ -101,7 +103,7 @@ export function Cart() {
                   </div>
                 </div>
 
-                <button className="w-full mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium">
+                <button className="w-full mt-8 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 font-medium" onClick={() => router.push('/payment')}>
                   Proceed to Checkout
                 </button>
               </div>

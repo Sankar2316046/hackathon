@@ -33,8 +33,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
       <SidebarComponent
-          logo={<Image src="/logo.png" alt="Logo" width={100} height={100} />}
-          companyName="NEIGHBOURHOOD HELPER"
+          logo={<Image src="/images/logo.png" alt="Logo" width={150} height={150} className="w-full h-full"/>}
+          companyName="E-commerce"
           navigationItems={adminNavigation}
           headerUserNav={<UserNavWrapper />}
           breadcrumbItems={{ items: adminBreadcrumb }}

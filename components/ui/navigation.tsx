@@ -3,53 +3,32 @@ import type { SidebarGroup,BreadcrumbItems } from './types'
 export const adminNavigation: SidebarGroup[] = [
   {
     title: "Home",
-    url: "/dashboard",
+    url: "/scion",
+   
     items: [
       {
         title: "Home",
-        url: "/dashboard",
-      },
-   
-    ],
-  },
-  {
-    title: "Help Desk",
-    url: "/help-desk",
-    items: [
-      {
-        title: "Help Desk",
-        url: "/help-desk",
+        url: "/",
       },
       {
-        title:"Get Help",
-        url:"/help-desk/create"
+        title: "My Orders",
+        url: "/orders",
+      },
+      {
+        title: "Favorites",
+        url: "/favorites",
+      },
+      {
+        title:"Catogories",
+        url:"/categories"
+      },
+      {
+        title: "About Us",
+        url: "/about",
+
       }
-   
     ],
   },
-  {
-    title: "Support",
-    url: "/support",
-    items: [
-      {
-        title: "Support",
-        url: "/support",
-      },
-      
-   
-    ],
-  },
-  {
-    title: "Chats",
-    url: "/chats",
-    items: [
-      {
-        title: "view chats",
-        url: "/chats",
-      },
-    ],
-  },
- 
 ];
 
 export const adminBreadcrumb:BreadcrumbItems['items'] = {
@@ -57,20 +36,20 @@ export const adminBreadcrumb:BreadcrumbItems['items'] = {
     title:'Home',
     url:'/'
   }],
-  '/profile':[{
-    title:'Profile',
-    url:'/profile'
+  '/orders':[{
+    title:'My Orders',
+    url:'/orders'
   }],
-  '/products':[{
-    title:'Products',
-    url:'/products'
+  '/favorites':[{
+    title:'Favorites',
+    url:'/favorites'
   }],
-  '/products/create':[{
-    title:'Products',
-    url:'/products'
+  '/categories':[{
+    title:'Catogories',
+    url:'/categories'
   },{
-    title:'Add Products',
-    url:'/products/create'
+    title:'About Us',
+    url:'/about'
   }],
   
 }

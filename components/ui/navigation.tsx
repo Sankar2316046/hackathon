@@ -9,47 +9,20 @@ export const adminNavigation: SidebarGroup[] = [
         title: "Home",
         url: "/dashboard",
       },
-   
-    ],
-  },
-  {
-    title: "Help Desk",
-    url: "/help-desk",
-    items: [
       {
-        title: "Help Desk",
-        url: "/help-desk",
+        title: "My Orders",
+        url: "/orders",
       },
       {
-        title:"Get Help",
-        url:"/help-desk/create"
-      }
-   
-    ],
-  },
-  {
-    title: "Support",
-    url: "/support",
-    items: [
-      {
-        title: "Support",
-        url: "/support",
+        title: "Favorites",
+        url: "/favorites",
       },
-      
-   
-    ],
-  },
-  {
-    title: "Chats",
-    url: "/chats",
-    items: [
       {
-        title: "view chats",
-        url: "/chats",
+        title:"Catogories",
+        url:"/categories"
       },
     ],
   },
- 
 ];
 
 export const adminBreadcrumb:BreadcrumbItems['items'] = {
